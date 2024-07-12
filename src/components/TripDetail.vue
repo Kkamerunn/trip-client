@@ -5,9 +5,11 @@
       <p>
         Inicio: {{ formatDate(trip.start.time) }} - {{ trip.start.address }}
       </p>
-      <p>Fin: {{ formatDate(trip.end.time) }} - {{ trip.end.address }}</p>
-      <p>Distancia: {{ trip.distance }} km</p>
-      <p>Duración: {{ formatDuration(trip.duration) }}</p>
+      <p>Termino: {{ formatDate(trip.end.time) }} - {{ trip.end.address }}</p>
+      <p>
+        Distancia y tiempo: {{ trip.distance }} km <br />
+        {{ formatDuration(trip.duration) }}
+      </p>
       <div id="map" style="height: 400px"></div>
     </div>
   </div>
@@ -86,6 +88,3 @@ export default {
   },
 };
 </script>
-
-//
-<script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY"></script>

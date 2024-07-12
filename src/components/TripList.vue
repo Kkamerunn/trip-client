@@ -1,12 +1,12 @@
 <template>
   <div>
-    <h1>Listado de Viajes</h1>
+    <h1>Viajes</h1>
     <div>
-      <label for="start_gte">Fecha de Inicio Desde:</label>
+      <label for="start_gte">Desde</label>
       <input type="date" v-model="filters.start_gte" @change="fetchTrips" />
-      <label for="start_lte">Fecha de Inicio Hasta:</label>
+      <label for="start_lte">Hasta</label>
       <input type="date" v-model="filters.start_lte" @change="fetchTrips" />
-      <label for="distance_gte">Distancia Mínima:</label>
+      <label for="distance_gte">Distancia y tiempo</label>
       <input
         type="number"
         v-model="filters.distance_gte"
@@ -18,9 +18,12 @@
         <p>
           Inicio: {{ formatDate(trip.start.time) }} - {{ trip.start.address }}
         </p>
-        <p>Fin: {{ formatDate(trip.end.time) }} - {{ trip.end.address }}</p>
-        <p>Distancia: {{ trip.distance }} km</p>
-        <p>Duración: {{ formatDuration(trip.duration) }}</p>
+        <p>Termino: {{ formatDate(trip.end.time) }} - {{ trip.end.address }}</p>
+        <p>
+          Distancia y tiempo: {{ trip.distance }} km <br />{{
+            formatDuration(trip.duration)
+          }}
+        </p>
       </li>
     </ul>
   </div>
