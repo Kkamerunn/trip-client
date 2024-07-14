@@ -47,10 +47,13 @@ export default {
 
     const fetchTrips = async () => {
       const { start_gte, start_lte, distance_gte } = filters.value;
-      const response = await axios.get("http://localhost:3000/trip", {
+      const url =
+        "https://virtserver.swaggerhub.com/CONTABILIDAD/JooycarTest/1.0.0/api/trips/v1"; //"http://localhost:3000/trip"
+      const response = await axios.get(url, {
         params: { start_gte, start_lte, distance_gte },
       });
       trips.value = response.data;
+      console.log(response.data);
     };
 
     const viewDetail = (id) => {
@@ -68,7 +71,9 @@ export default {
       return `${hours}h ${minutes}m ${seconds}s`;
     };
 
-    fetchTrips();
+    onMounted(() => {
+      fetchTrips();
+    });
 
     return {
       trips,

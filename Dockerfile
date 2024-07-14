@@ -20,7 +20,7 @@ FROM nginx:alpine
 COPY --from=0 /app/dist /usr/share/nginx/html
 
 # Expone el puerto de la aplicación
-EXPOSE 80
+EXPOSE 3001
 
 # Comando para iniciar el servidor web
 CMD ["nginx", "-g", "daemon off;"]
